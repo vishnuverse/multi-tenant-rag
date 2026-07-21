@@ -1,0 +1,8 @@
+{"question": "What companies can I query?", "expected_answer": "apple", "expected_source_files": [], "expected_figures": [], "user": "alice@example.com", "intent": "META"}
+{"question": "Hi there!", "expected_answer": "", "expected_source_files": [], "expected_figures": [], "user": "alice@example.com", "intent": "SMALL_TALK"}
+{"question": "What was Apple revenue?", "expected_answer": "revenue", "expected_source_files": ["FY25_Q1"], "expected_figures": [], "user": "alice@example.com", "intent": "DOC", "allowed_companies": ["apple"]}
+{"question": "What did Microsoft say about cloud revenue?", "expected_answer": "cloud", "expected_source_files": ["TranscriptFY25Q2"], "expected_figures": [], "user": "bob@example.com", "intent": "DOC", "allowed_companies": ["microsoft", "google"]}
+{"question": "Summarize Meta prepared remarks.", "expected_answer": "meta", "expected_source_files": ["META-Q4"], "expected_figures": [], "user": "charlie@example.com", "intent": "DOC", "allowed_companies": ["meta", "amazon"]}
+{"question": "Can I see Apple documents?", "expected_answer": "apple", "expected_source_files": [], "expected_figures": [], "user": "bob@example.com", "intent": "META"}
+{"question": "Tell me about Amazon Q4 earnings.", "expected_answer": "amazon", "expected_source_files": ["AMZN-Q4"], "expected_figures": [], "user": "charlie@example.com", "intent": "DOC", "allowed_companies": ["meta", "amazon"]}
+{"question": "Thanks!", "expected_answer": "", "expected_source_files": [], "expected_figures": [], "user": "charlie@example.com", "intent": "SMALL_TALK"}

@@ -1,0 +1,92 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multi-tenant-rag"
+version = "0.1.0"
+description = "Multi-tenant conversational RAG over earnings PDFs with Python-enforced access control."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Vishnu Anilkumar" }]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "chainlit",
+    "langgraph",
+    "langchain-core",
+    "pypdf",
+    "sentence-transformers",
+    "chromadb",
+    "rank-bm25",
+    "openai",
+    "python-dotenv",
+    "pymupdf>=1.28.0",
+    "langgraph-checkpoint-sqlite>=3.1.0",
+    "sqlalchemy>=2.0.51",
+    "aiosqlite>=0.22.1",
+    "greenlet>=3.5.3",
+    "httpx>=0.28.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/vishnuverse/multi-tenant-rag"
+Repository = "https://github.com/vishnuverse/multi-tenant-rag"
+
+[project.optional-dependencies]
+dev = [
+    "ragas",
+]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+multi_tenant_rag = ["py.typed"]
+"multi_tenant_rag.storage" = ["chainlit_schema.sql"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/multi_tenant_rag/ai/prompts.py" = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src"]
+follow_imports_for_stubs = true
+
+[[tool.mypy.overrides]]
+module = ["numpy", "numpy.*"]
+follow_imports = "skip"
+
+[[tool.mypy.overrides]]
+module = ["chainlit", "chainlit.*"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = [
+    "multi_tenant_rag.app",
+    "multi_tenant_rag.ui.chat",
+    "multi_tenant_rag.ui.settings",
+]
+ignore_missing_imports = true
+disallow_untyped_calls = false
+disable_error_code = ["misc", "arg-type", "assignment"]
+
+[[tool.mypy.overrides]]
+module = ["fitz", "fitz.*"]
+ignore_missing_imports = true

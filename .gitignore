@@ -1,0 +1,59 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Python caches and tooling
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Eval reports (regenerated locally)
+evals/reports/
+
+# Vector stores and indexes
+.chroma/
+chroma/
+vector_store/
+vector_stores/
+indexes/
+data/chroma/
+data/vector_store/
+data/indexes/
+data/bm25_index.pkl
+data/index_version.txt
+data/*.sqlite
+data/*.sqlite-*
+
+# Runtime logs
+*.log
+logs/*
+!logs/.gitkeep
+data/logs/
+
+# Chainlit runtime state
+.chainlit/
+.files/
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+
+# Local source material that must not be published
+ATA Assignment.pdf
